@@ -9,6 +9,7 @@ LANGUAGES = {
     "css": css,
     "xml": xml,
     "html": html,
+    "json": json_f,
 }
 
 

@@ -2,6 +2,7 @@ import subprocess
 import jsbeautifier
 import cssbeautifier
 from bs4 import BeautifulSoup
+import json
 
 
 def py(code: str):
@@ -25,3 +26,7 @@ def xml(code: str, parser="xml"):
 
 def html(code: str):
     return xml(code, "lxml")
+
+
+def json_f(code: str):
+    return json.dumps(json.loads(code), indent=2)
