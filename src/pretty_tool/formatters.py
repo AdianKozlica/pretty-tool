@@ -5,6 +5,12 @@ from bs4 import BeautifulSoup
 import json
 
 
+def clang_format(code: str, suffix: str):
+    return subprocess.check_output(
+        ["clang-format", f"--assume-filename=sample.{suffix}"], input=code.encode()
+    ).decode()
+
+
 def py(code: str):
     return subprocess.check_output(
         ["python3", "-m", "ruff", "format", "-"], input=code.encode()
@@ -13,6 +19,30 @@ def py(code: str):
 
 def js(code: str):
     return jsbeautifier.beautify(code)
+
+
+def ts(code: str):
+    return clang_format(code, "ts")
+
+
+def c(code: str):
+    return clang_format(code, "c")
+
+
+def cpp(code: str):
+    return clang_format(code, "cpp")
+
+
+def cs(code: str):
+    return clang_format(code, "cs")
+
+
+def m(code: str):
+    return clang_format(code, "m")
+
+
+def java(code: str):
+    return clang_format(code, "java")
 
 
 def jsx(code: str):

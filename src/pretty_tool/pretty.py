@@ -6,6 +6,12 @@ from pretty_tool.formatters import *
 LANGUAGES = {
     "py": py,
     "js": js,
+    "ts": ts,
+    "c": c,
+    "cpp": cpp,
+    "cs": cs,
+    "m": m,  # Objective-C
+    "java": java,
     "jsx": jsx,
     "css": css,
     "xml": xml,
