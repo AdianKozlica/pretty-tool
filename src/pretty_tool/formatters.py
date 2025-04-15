@@ -15,6 +15,13 @@ def js(code: str):
     return jsbeautifier.beautify(code)
 
 
+def jsx(code: str):
+    return jsbeautifier.beautify(
+        code,
+        jsbeautifier.BeautifierOptions({"e4x": True, "space_before_conditional": True}),
+    )
+
+
 def css(code: str):
     return cssbeautifier.beautify(code)
 
