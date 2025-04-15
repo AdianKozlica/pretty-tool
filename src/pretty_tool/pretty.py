@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import sys
 import argparse
-from formatters import *
+from pretty_tool.formatters import *
 
 LANGUAGES = {
     "py": py,
@@ -9,8 +9,11 @@ LANGUAGES = {
     "css": css,
 }
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Universal prettifier.")
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog="pretty_tool", description="Universal prettifier."
+    )
     parser.add_argument("language", help="Language code")
     parser.add_argument("input_file", help="Path to the input file")
     parser.add_argument(
