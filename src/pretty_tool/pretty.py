@@ -7,6 +7,8 @@ LANGUAGES = {
     "py": py,
     "js": js,
     "css": css,
+    "xml": xml,
+    "html": html,
 }
 
 
@@ -27,4 +29,4 @@ def main():
 
     with open(args.input_file, "r") as file:
         formatter = LANGUAGES[args.language]
-        formatter(file.read())
+        print(formatter(file.read()))
