@@ -1,6 +1,4 @@
 import subprocess
-import jsbeautifier
-import cssbeautifier
 from bs4 import BeautifulSoup
 from pathlib import Path
 
@@ -40,7 +38,7 @@ def py(code: str):
 
 
 def js(code: str):
-    return jsbeautifier.beautify(code)
+    return biome_format(code, "js")
 
 
 def ts(code: str):
@@ -76,7 +74,7 @@ def tsx(code: str):
 
 
 def css(code: str):
-    return cssbeautifier.beautify(code)
+    return biome_format(code, "css")
 
 
 def xml(code: str, parser="xml"):
