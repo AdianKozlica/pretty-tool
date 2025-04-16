@@ -1,6 +1,6 @@
 [project]
 name = "pretty_tool"
-version = "0.1.0"
+version = "1.0.0"
 authors = [
     { name = "Adian Kozlica", email = "kozlicaadian@gmail.com" },
 ]
@@ -8,8 +8,6 @@ description = "A tool to prettify code"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
-    "jsbeautifier",
-    "cssbeautifier",
     "ruff",
     "BeautifulSoup4",
     "clang-format",
@@ -21,3 +19,6 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.package-data]
 pretty_tool = ["*.json"]
+
+[project.scripts]
+pretty-tool = "pretty_tool.pretty:main"

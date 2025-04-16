@@ -1,13 +1,14 @@
 import subprocess
-import jsbeautifier
-import cssbeautifier
 from bs4 import BeautifulSoup
 from pathlib import Path
 
+import os
 import json
 import shutil
 
 NPX_EXISTS = shutil.which("npx") is not None
+PHP_EXISTS = shutil.which("php") is not None
+PRETTY_PHP_PATH = os.path.join(os.getenv("HOME"), ".pretty_tool/pretty-php.phar")
 BIOME_CONFIG = str(Path(__file__).parent)
 
 
@@ -39,8 +40,18 @@ def py(code: str):
     ).decode()
 
 
+def php(code: str):
+    if not PHP_EXISTS:
+        raise OSError("PHP is not installed!")
+
+    return subprocess.check_output(
+        ["php", PRETTY_PHP_PATH, "--stdin-filename=sample.php", "-qq"],
+        input=code.encode(),
+    ).decode()
+
+
 def js(code: str):
-    return jsbeautifier.beautify(code)
+    return biome_format(code, "js")
 
 
 def ts(code: str):
@@ -76,7 +87,7 @@ def tsx(code: str):
 
 
 def css(code: str):
-    return cssbeautifier.beautify(code)
+    return biome_format(code, "css")
 
 
 def xml(code: str, parser="xml"):
