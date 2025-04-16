@@ -33,6 +33,11 @@ def main():
     parser.add_argument(
         "-l", "--languages", help="Show all language codes", action="store_true"
     )
+
+    if len(sys.argv) == 1:
+        parser.print_help()
+        exit(0)
+
     args = parser.parse_args()
 
     if args.languages:
