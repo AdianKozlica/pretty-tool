@@ -12,5 +12,5 @@ if not os.path.exists(PRETTY_TOOL_DIR):
 
 if not os.path.exists(PRETTY_PHP_PATH):
     urllib.request.urlretrieve(
-        PRETTY_PHP_URL, os.path.join(PRETTY_TOOL_DIR, "pretty-php.phar")
+        PRETTY_PHP_URL, PRETTY_PHP_PATH,
     )
