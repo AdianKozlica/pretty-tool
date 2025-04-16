@@ -13,6 +13,7 @@ LANGUAGES = {
     "m": m,  # Objective-C
     "java": java,
     "jsx": jsx,
+    "tsx": tsx,
     "css": css,
     "xml": xml,
     "html": html,
