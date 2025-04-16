@@ -2,10 +2,13 @@ import subprocess
 from bs4 import BeautifulSoup
 from pathlib import Path
 
+import os
 import json
 import shutil
 
 NPX_EXISTS = shutil.which("npx") is not None
+PHP_EXISTS = shutil.which("php") is not None
+PRETTY_PHP_PATH = os.path.join(os.getenv("HOME"), ".pretty_tool/pretty-php.phar")
 BIOME_CONFIG = str(Path(__file__).parent)
 
 
@@ -34,6 +37,16 @@ def biome_format(code: str, suffix: str):
 def py(code: str):
     return subprocess.check_output(
         ["python3", "-m", "ruff", "format", "-"], input=code.encode()
+    ).decode()
+
+
+def php(code: str):
+    if not PHP_EXISTS:
+        raise OSError("PHP is not installed!")
+
+    return subprocess.check_output(
+        ["php", PRETTY_PHP_PATH, "--stdin-filename=sample.php", "-qq"],
+        input=code.encode(),
     ).decode()
 
 

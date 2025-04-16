@@ -5,6 +5,7 @@ from pretty_tool.formatters import *
 
 LANGUAGES = {
     "py": py,
+    "php": php,
     "js": js,
     "ts": ts,
     "c": c,
